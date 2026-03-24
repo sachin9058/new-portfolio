@@ -1,0 +1,246 @@
+/* ============================================
+   DEVOS PORTFOLIO — Design System
+   ============================================ */
+
+:root {
+  /* Dark Theme (default) */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2129;
+  --bg-elevated: #21262d;
+  --bg-overlay: rgba(13, 17, 23, 0.85);
+
+  --accent: #58a6ff;
+  --accent-dim: #1f6feb;
+  --accent-subtle: rgba(88, 166, 255, 0.12);
+
+  --green: #3fb950;
+  --green-subtle: rgba(63, 185, 80, 0.15);
+  --yellow: #d29922;
+  --red: #f85149;
+  --red-subtle: rgba(248, 81, 73, 0.15);
+  --purple: #bc8cff;
+
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --text-code: #79c0ff;
+
+  --border: #30363d;
+  --border-subtle: #21262d;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+  --shadow-xl: 0 16px 64px rgba(0,0,0,0.7);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+
+  --topbar-h: 42px;
+  --sidebar-w: 52px;
+  --transition: 0.2s ease;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f2f5;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(246, 248, 250, 0.9);
+
+  --accent: #0969da;
+  --accent-dim: #0550ae;
+  --accent-subtle: rgba(9, 105, 218, 0.1);
+
+  --green: #1a7f37;
+  --green-subtle: rgba(26, 127, 55, 0.12);
+  --yellow: #9a6700;
+  --red: #cf222e;
+  --red-subtle: rgba(207, 34, 46, 0.1);
+  --purple: #8250df;
+
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-muted: #9198a1;
+  --text-code: #0550ae;
+
+  --border: #d0d7de;
+  --border-subtle: #e8ebef;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+  --shadow-xl: 0 16px 64px rgba(0,0,0,0.2);
+}
+
+/* ============ Reset ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+/* ============ Scrollbar ============ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ============ Utilities ============ */
+.mono { font-family: var(--font-mono); }
+.text-accent { color: var(--accent); }
+.text-green { color: var(--green); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+/* ============ Animations ============ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--accent);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ============ Window Base ============ */
+.window {
+  position: absolute;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideIn 0.18s ease;
+  min-width: 320px;
+  min-height: 200px;
+}
+
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 36px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+.window-titlebar.dragging { cursor: grabbing; }
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.window-btn {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+}
+.window-btn.close { background: #ff5f57; }
+.window-btn.minimize { background: #febc2e; }
+.window-btn.maximize { background: #28c840; }
+.window-btn:hover { opacity: 0.8; }
+
+.window-title {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============ Badge ============ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  white-space: nowrap;
+}
+.badge.green { background: var(--green-subtle); color: var(--green); border-color: var(--green); }
+.badge.red { background: var(--red-subtle); color: var(--red); border-color: var(--red); }
+
+/* ============ Button ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.btn:hover { background: var(--bg-tertiary); border-color: var(--accent); }
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn.primary:hover { background: var(--accent-dim); }
+
+/* ============ Mobile Responsive ============ */
+@media (max-width: 768px) {
+  html, body { overflow-y: auto; }
+  #root { overflow-y: auto; }
+}

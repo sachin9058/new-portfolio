@@ -1,0 +1,54 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: var(--font-mono);
+}
+
+.boot-content {
+  width: min(700px, 90vw);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.boot-logo {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.boot-logo-bracket { color: var(--accent); }
+.boot-logo-text { color: var(--text-primary); margin: 0 4px; }
+
+.boot-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 260px;
+}
+
+.boot-line {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.boot-line.highlight {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.boot-progress {
+  height: 2px;
+  background: var(--bg-elevated);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.boot-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+}

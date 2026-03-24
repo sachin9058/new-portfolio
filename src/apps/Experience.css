@@ -1,0 +1,106 @@
+.exp-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.exp-log-header {
+  padding: 10px 16px;
+  font-size: 11px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.exp-timeline {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-entry {
+  display: flex;
+  gap: 14px;
+  animation: fadeIn 0.3s ease both;
+}
+
+.exp-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.exp-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid;
+}
+.exp-icon.accent { color: var(--accent); border-color: var(--accent); background: var(--accent-subtle); }
+.exp-icon.green { color: var(--green); border-color: var(--green); background: var(--green-subtle); }
+.exp-icon.purple { color: var(--purple); border-color: var(--purple); background: rgba(188,140,255,0.12); }
+.exp-icon.yellow { color: var(--yellow); border-color: var(--yellow); background: rgba(210,153,34,0.12); }
+
+.exp-line {
+  width: 2px;
+  flex: 1;
+  min-height: 20px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.exp-body {
+  flex: 1;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.exp-commit { letter-spacing: 0.05em; }
+.exp-date {}
+
+.exp-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+.exp-org { font-size: 12px; margin-top: 1px; }
+
+.exp-details {
+  margin-top: 6px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.exp-detail {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding-left: 14px;
+  position: relative;
+}
+.exp-detail::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}

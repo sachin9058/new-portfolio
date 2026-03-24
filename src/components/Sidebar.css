@@ -1,0 +1,101 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--sidebar-w);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 8px 0;
+  flex-shrink: 0;
+  z-index: 50;
+}
+
+.sidebar-apps, .sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-item-wrapper {
+  position: relative;
+}
+
+/* Tooltip */
+.sidebar-item-wrapper::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 200;
+  box-shadow: var(--shadow-md);
+}
+.sidebar-item-wrapper:hover::after { opacity: 1; }
+
+.sidebar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  text-decoration: none;
+}
+
+.sidebar-item:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.sidebar-item.active {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.sidebar-dot {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Mobile: horizontal bottom bar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 56px;
+    flex-direction: row;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    order: 10;
+    padding: 0 8px;
+    overflow-x: auto;
+  }
+  .sidebar-apps, .sidebar-bottom {
+    flex-direction: row;
+    gap: 4px;
+  }
+}

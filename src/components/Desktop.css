@@ -1,0 +1,70 @@
+.desktop {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.desktop-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.desktop-main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Empty-state hint */
+.desktop-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.hint-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  opacity: 0.5;
+}
+.hint-logo {
+  font-size: 52px;
+  color: var(--accent);
+  line-height: 1;
+}
+.hint-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+.hint-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.hint-tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .desktop-body {
+    flex-direction: column;
+  }
+  .desktop-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+}

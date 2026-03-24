@@ -1,0 +1,81 @@
+.terminal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0d1117;
+  cursor: text;
+  overflow: hidden;
+}
+
+.term-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.term-input-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.term-prompt {
+  display: inline-flex;
+  white-space: pre;
+  flex-shrink: 0;
+}
+
+.term-output-block {
+  margin-bottom: 6px;
+}
+.term-line {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.term-code { color: var(--accent); }
+.term-red { color: var(--red); }
+.term-yellow { color: var(--yellow); }
+
+.term-input-area {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: #0d1117;
+  flex-shrink: 0;
+}
+
+.term-input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.term-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+  caret-color: transparent;
+}
+
+.term-suggestion {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  font-size: 13px;
+  pointer-events: none;
+  white-space: pre;
+}
+.term-suggestion span { color: var(--text-muted); }

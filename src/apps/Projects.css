@@ -1,0 +1,167 @@
+.projects-container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* File Tree */
+.proj-filetree {
+  width: 200px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.filetree-header {
+  padding: 10px 12px 6px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+.filetree-section { padding: 6px 0; }
+.filetree-folder {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 5px 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  text-align: left;
+}
+.filetree-folder:hover { color: var(--text-primary); }
+.chevron { transition: transform var(--transition); }
+.chevron.open { transform: rotate(90deg); }
+
+.filetree-files { padding-left: 12px; }
+.filetree-file {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 4px 12px;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.filetree-file:hover { color: var(--text-primary); background: var(--bg-elevated); }
+.filetree-file.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--accent-subtle);
+}
+
+/* Editor */
+.proj-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.editor-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-tertiary);
+}
+.editor-tab {
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-right: 1px solid var(--border);
+  border-bottom: 2px solid transparent;
+}
+.editor-tab.active {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border-bottom-color: var(--accent);
+}
+
+.editor-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.proj-meta {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.proj-meta-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.proj-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+.proj-desc { font-size: 12.5px; color: var(--text-secondary); margin-top: 3px; }
+
+.proj-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.proj-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.proj-topics { display: flex; flex-wrap: wrap; gap: 5px; }
+
+/* README */
+.proj-readme {
+  padding: 16px 20px;
+  flex: 1;
+}
+.readme-header {
+  margin-bottom: 12px;
+  font-size: 11px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.readme-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.readme-body h2 { font-size: 18px; color: var(--text-primary); margin: 0 0 10px; }
+.readme-body h3 { font-size: 14px; color: var(--text-primary); margin: 14px 0 6px; }
+.readme-body li { margin-left: 18px; color: var(--text-secondary); }
+.readme-body code {
+  font-family: var(--font-mono);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 12px;
+  color: var(--text-code);
+}

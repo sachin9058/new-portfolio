@@ -25,7 +25,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 .hint-inner {
   display: flex;
@@ -33,7 +33,7 @@
   align-items: center;
   gap: 12px;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.85;
 }
 .hint-logo {
   font-size: 52px;

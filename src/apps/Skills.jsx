@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import './Skills.css';
 
 const skillsData = {
-  languages: ['C++', 'Python', 'JavaScript', 'TypeScript', 'C', 'Go'],
-  frameworks: ['React', 'Node.js', 'Express', 'FastAPI', 'Next.js'],
-  tools: ['Git', 'Docker', 'Linux', 'VS Code', 'Vim', 'GDB'],
-  databases: ['MongoDB', 'PostgreSQL', 'Redis', 'SQLite'],
-  cloud: ['AWS (EC2, S3)', 'Vercel', 'GitHub Actions'],
-  paradigms: ['OOP', 'Functional', 'Systems Programming', 'REST APIs', 'WebSockets'],
+  languages: ['C', 'C++', 'Python', 'Go', 'JavaScript', 'TypeScript', 'Bash/Shell', 'RISC-V Assembly'],
+  frameworks: ['FastAPI', 'LangChain', 'Ollama', 'Node.js', 'Express', 'gRPC'],
+  tools: ['Git', 'Docker', 'Linux', 'GDB', 'QEMU', 'Vim', 'VS Code', 'Kubernetes'],
+  databases: ['PostgreSQL', 'pgvector', 'MongoDB', 'Redis', 'SQLite'],
+  'open-source': ['OpenSSF Scorecard', 'Hyperledger Fabric-X', 'Minder (mindersec)', 'pg_ai_query', 'Rocket.Chat'],
+  paradigms: ['Systems Programming', 'OOP', 'Distributed Systems', 'RAG / LLM Agents', 'Security Engineering'],
 };
 
 const proficiency = {
-  'C++': 90, 'Python': 85, 'JavaScript': 88, 'TypeScript': 78,
-  'C': 82, 'Go': 65, 'React': 87, 'Node.js': 80
+  'C': 85, 'C++': 90, 'Python': 85, 'Go': 72,
+  'JavaScript': 80, 'TypeScript': 75, 'Bash/Shell': 78, 'Docker': 70
 };
 
 function JsonLine({ keyStr, value, delay }) {

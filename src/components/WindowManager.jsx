@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import About from '../apps/About';
 import Projects from '../apps/Projects';
@@ -37,7 +38,7 @@ export default function WindowManager({ windows, onClose, onMinimize }) {
   const [positions, setPositions] = useState({});
   const [zOrders, setZOrders] = useState({});
   const [minimized, setMinimized] = useState({});
-  const [zCounter, setZCounter] = useState(100);
+  const zCounter = useRef(100);
   const containerRef = useRef(null);
   const dragging = useRef(null);
 
@@ -52,14 +53,13 @@ export default function WindowManager({ windows, onClose, onMinimize }) {
         setZOrders(z => ({ ...z, [w.id]: 100 }));
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windows]);
 
   const bringToFront = useCallback((id) => {
-    setZCounter(c => {
-      const next = c + 1;
-      setZOrders(z => ({ ...z, [id]: next }));
-      return next;
-    });
+    const next = zCounter.current + 1;
+    zCounter.current = next;
+    setZOrders(z => ({ ...z, [id]: next }));
   }, []);
 
   const handleMouseDown = useCallback((e, id) => {
@@ -146,7 +146,7 @@ export default function WindowManager({ windows, onClose, onMinimize }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.88, transition: { duration: 0.15 } }}
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              onMouseDown={(e) => bringToFront(w.id)}
+              onMouseDown={() => bringToFront(w.id)}
             >
               <div
                 className="window-titlebar"

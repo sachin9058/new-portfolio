@@ -42,19 +42,21 @@ export default function About() {
         <div className="about-header">
           <h1 className="about-name">Sachin Kumar</h1>
           <div className="about-tagline mono">
-            <span className="text-accent">$</span> B.Tech Metallurgy Student @ IIT BHU
+            <span className="text-accent">$</span> Backend Developer · Open Source · IIT BHU
           </div>
         </div>
 
         <p className="about-bio">
-          Hey! I'm a <span className="text-accent">Software Developer</span> passionate about
-          building efficient, scalable systems and beautiful user interfaces.
-          I love working at the intersection of systems programming, web development,
-          and developer tooling.
+          Hey! I'm a <span className="text-accent">Backend-focused Software Developer</span> with hands-on
+          experience contributing to distributed systems in open source — including
+          <span className="text-accent"> Hyperledger Fabric-X</span> and the <span className="text-accent">OpenSSF Minder</span> project.
+          I've worked on transaction reliability, retry mechanisms, context propagation, and system
+          decoupling in production-like environments.
         </p>
         <p className="about-bio">
-          When I'm not shipping code, I'm contributing to open-source, reading about distributed
-          systems, or grinding competitive programming.
+          I'm passionate about building <span className="text-accent">resilient and scalable backend systems</span>,
+          exploring LLM agents and RAG pipelines, and contributing to meaningful open source projects.
+          When I'm not shipping code, I'm grinding competitive programming or reading about distributed systems.
         </p>
 
         <div className="about-stats">

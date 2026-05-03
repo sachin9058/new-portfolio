@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import './BootScreen.css';
 
@@ -27,7 +28,7 @@ export default function BootScreen({ onComplete }) {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const timers = bootLines.map((line, i) =>
+    const timers = bootLines.map((line) =>
       setTimeout(() => {
         setVisibleLines(prev => [...prev, line]);
       }, line.delay)
